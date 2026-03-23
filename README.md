@@ -5,9 +5,9 @@ My focus is to administrate Microsoft Cloud Services and different Microsoft Clo
 
 Here you can find all my best practices to administrate the tenants using granular delegated admin privileges (GDAP).
 
-Prerequisites:
-######################
-Microsoft 365 Tenant
-Azure Subscribtion in the Tenant
-Active Microsoft Cloud Solution Provider Rollout
-Customers to administrate in Microsoft Cloud Services
+## Prerequisites:
+
+- Microsoft 365 Tenant
+- Azure Subscribtion in the Tenant
+- Active Microsoft Cloud Solution Provider Rollout
+- Customers to administrate in Microsoft Cloud Services
