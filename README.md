@@ -11,3 +11,8 @@ Here you can find all my best practices to administrate the tenants using granul
 - Azure Subscribtion in the Tenant
 - Active Microsoft Cloud Solution Provider Rollout
 - Customers to administrate in Microsoft Cloud Services
+
+### VSCODE Best Practice
+- STRG + SHIFT + P (open Git Clone menu)
+- GIT:Clone (copy REPO Link)
+- Add to Workspace (Add REPO to File Explorer)
