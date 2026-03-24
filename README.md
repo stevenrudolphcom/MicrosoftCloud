@@ -1,5 +1,5 @@
 # MicrosoftCloud
-Everything you need for administration
+Everything you need for administration in Microsoft Cloud Services
 
 My focus is to administrate Microsoft Cloud Services and different Microsoft Cloud Tenants for Microsoft 365 and Microsoft Azure as Microsoft Cloud Solution Provider.
 
