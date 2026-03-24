@@ -54,9 +54,16 @@ $cleanupModules = {
 	Write-Output ("Found uninstallable modules: " + $installed.Count)
 	$installed | Select-Object Name, Version, Repository | Format-Table -AutoSize
 
+	$uninstalledCount = 0
 	foreach ($module in $installed) {
 		if ($ForceRemoval) {
-			Uninstall-Module -Name $module.Name -RequiredVersion $module.Version -Force -ErrorAction Continue
+			try {
+				Uninstall-Module -Name $module.Name -RequiredVersion $module.Version -Force -ErrorAction Stop
+				$uninstalledCount++
+				Write-Output "Uninstalled $uninstalledCount of $($installed.Count): $($module.Name) (Version: $($module.Version))"
+			} catch {
+				Write-Output "Failed to uninstall $($module.Name): $_"
+			}
 		}
 	}
 
