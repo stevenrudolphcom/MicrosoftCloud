@@ -19,17 +19,17 @@ param(
 )
 
 if ($ForceRemoval -and $TestMode) {
-	Write-Error "Bitte nur einen Modus waehlen: -ForceRemoval oder -TestMode."
+	Write-Error "Please choose only one mode: -ForceRemoval or -TestMode."
 	return
 }
 
 if (-not $ForceRemoval -and -not $TestMode) {
-	$selection = Read-Host "Modus waehlen: [F]orceRemoval, [T]estmodus (WhatIf), [A]bbrechen"
+	$selection = Read-Host "Choose mode: [F]orceRemoval, [T]est mode (WhatIf), [A]bort"
 	switch ($selection.ToUpperInvariant()) {
 		"F" { $ForceRemoval = $true }
 		"T" { $TestMode = $true }
 		default {
-			Write-Output "Abgebrochen."
+			Write-Output "Aborted."
 			return
 		}
 	}
@@ -47,11 +47,11 @@ $cleanupModules = {
 		Where-Object { $ExcludeModules -notcontains $_.Name }
 
 	if (-not $installed) {
-		Write-Output "Keine deinstallierbaren Module gefunden (oder alle sind ausgeschlossen)."
+		Write-Output "No uninstallable modules found (or all are excluded)."
 		return
 	}
 
-	Write-Output ("Gefundene deinstallierbare Module: " + $installed.Count)
+	Write-Output ("Found uninstallable modules: " + $installed.Count)
 	$installed | Select-Object Name, Version, Repository | Format-Table -AutoSize
 
 	foreach ($module in $installed) {
@@ -61,10 +61,10 @@ $cleanupModules = {
 	}
 
 	if ($ForceRemoval) {
-		Write-Output "Deinstallation ausgefuehrt."
+		Write-Output "Uninstallation executed."
 	}
 	else {
-		Write-Output ("Testmodus abgeschlossen. Es wurden keine Module entfernt. Geplante Deinstallationen: " + $installed.Count)
+		Write-Output ("Test mode completed. No modules were removed. Planned uninstallations: " + $installed.Count)
 	}
 }
 
