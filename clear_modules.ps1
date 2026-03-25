@@ -45,6 +45,9 @@ $cleanupModules = {
 	# Get only modules that are manageable by PowerShellGet from installed repositories.
 	$installed = Get-InstalledModule -ErrorAction SilentlyContinue |
 		Where-Object { $ExcludeModules -notcontains $_.Name }
+	# Get only modules that are manageable by PowerShellGet from installed repositories.
+	$installed = Get-InstalledModule -ErrorAction SilentlyContinue |
+		Where-Object { $ExcludeModules -notcontains $_.Name }
 
 	if (-not $installed) {
 		Write-Output "No uninstallable modules found (or all are excluded)."
